@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  devise_for :customers
-  devise_for :admins
+  # 顧客側deviseのルーティング
+  devise_for :customers, skip: [:passwords], controllers: {
+    registrations: "public/registrations",
+    sessions: 'public/sessions'
+  }
+
+  # 管理者用deviseのルーティング
+  devise_for :admins, skip: [:registrations, :passwords], controllers: {
+    sessions: "admin/sessions"
+  }
 
   # 会員側のルーティング設定
   scope module: :public do
