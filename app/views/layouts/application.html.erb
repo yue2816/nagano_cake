@@ -19,6 +19,15 @@
             <h2 class="py-2 px-5 bg-light text-dark">ロゴ</h2>
           </a>
           <div>
+            <% if admin_signed_in? %>
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <div class="py-1 px-3 bg-light text-dark">
+                <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
+              </li>
+            </ul>
+            <% elsif customer_signed_in? %>
+            <% else %>
             <ul class="navbar-nav ml-auto">
               <li class="nav-item">
                 <div class="py-1 px-3 bg-light text-dark">
@@ -26,6 +35,7 @@
                 </div>
               </li>
             </ul>
+            <% end %>
           </div>
         </div>
       </nav>
