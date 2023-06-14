@@ -10,10 +10,11 @@ Rails.application.routes.draw do
     sessions: "admin/sessions"
   }
 
-  # 会員側のルーティング設定
+  # 顧客側のルーティング設定
   scope module: :public do
     root to: "homes#top"
     get 'about' => 'homes#about'
+    get 'customers/my_page' => 'customers#show'
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
