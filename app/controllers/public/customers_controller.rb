@@ -3,13 +3,13 @@ class Public::CustomersController < ApplicationController
   end
 
   def edit
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
   end
 
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     @customer.update(customer_params)
-    redirect_to list_path(list.id)
+    redirect_to customers_my_page_path
   end
 
   private

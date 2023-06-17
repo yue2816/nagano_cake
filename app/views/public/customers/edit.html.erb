@@ -1,2 +1,13 @@
 <h1>会員情報編集</h1>
 
+<%= form_with model: @customer, url: customers_information_path do |f| %>
+  <%= f.text_field :last_name %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name_kana %>
+  <%= f.text_field :first_name_kana %>
+  <%= f.text_field :postal_code %>
+  <%= f.text_area :address %>
+  <%= f.text_field :telephone_number %>
+  <%= f.text_field :email %>
+  <%= f.submit '編集内容を保存' %>
+<% end %>
