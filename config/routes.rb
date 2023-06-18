@@ -21,5 +21,10 @@ Rails.application.routes.draw do
     patch 'customers/withdrawl' => 'customers#withdrawl', as: 'withdrawal'
   end
 
+  # 管理者側のルーティング設定
+  namespace :admin do
+    resources :items, only: [:new, :index, :create, :show, :edit, :update]
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
