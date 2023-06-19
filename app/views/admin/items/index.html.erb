@@ -4,6 +4,6 @@
 
 <% @items.each do |item| %>
   <p>商品ID：<%= item.id %></p>
-  <p>商品名：<%= item.name %></p>
+  <p>商品名：<%= link_to item.name, admin_item_path(item.id) %></p>
   <p>税抜き価格：<%= item.price %></p>
 <% end %>
