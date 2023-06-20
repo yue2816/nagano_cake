@@ -26,6 +26,10 @@
                 <%= link_to "商品一覧", admin_items_path, class: 'nav-link text-dark' %>
               </li>
               <li class="nav-item">
+                <div class="py-1 px-3 mr-4 bg-light text-dark">
+                <%= link_to "会員一覧", admin_customers_path, class: 'nav-link text-dark' %>
+              </li>
+              <li class="nav-item">
                 <div class="py-1 px-3 bg-light text-dark">
                 <%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: 'nav-link text-dark' %>
               </li>

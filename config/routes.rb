@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   # 管理者側のルーティング設定
   namespace :admin do
     resources :items, only: [:new, :index, :create, :show, :edit, :update]
+    resources :customers, only: [:index, :show, :edit, :update]
   end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
