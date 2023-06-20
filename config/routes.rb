@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     patch 'customers/information' => 'customers#update'
     get 'customers/check' => 'customers#check'
     patch 'customers/withdrawl' => 'customers#withdrawl', as: 'withdrawal'
+    resources :items, only: [:index, :show]
   end
 
   # 管理者側のルーティング設定

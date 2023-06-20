@@ -1,0 +1,9 @@
+<h1>商品一覧</h1>
+
+<% @items.each do |item| %>
+  <%= link_to item_path(item.id) do %>
+    <%= image_tag item.get_image(100,100) %>
+  <% end %>
+  <p>商品名：<%= item.name %></p>
+  <p>税抜き価格：<%= item.price %></p>
+<% end %>
