@@ -1,6 +1,15 @@
 <div class="container">
   <h1>会員情報編集</h1>
 
+  <% if @customer.errors.any? %>
+    <%= @customer.errors.count %>件のエラーが発生しました
+    <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
   <%= form_with model: @customer, url: customers_information_path do |f| %>
   <form>
     <div class="form-group row">

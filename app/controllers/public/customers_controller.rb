@@ -8,14 +8,17 @@ class Public::CustomersController < ApplicationController
 
   def update
     @customer = current_customer
-    @customer.update(customer_params)
-    redirect_to customers_my_page_path
+    if @customer.update(customer_params)
+      redirect_to customers_my_page_path
+    else
+      render "public/customers/edit"
+    end
   end
 
   def check
     @customer = current_customer
   end
-  
+
   def withdrawl
     @customer = current_customer
     @customer.update(is_deleted: true)

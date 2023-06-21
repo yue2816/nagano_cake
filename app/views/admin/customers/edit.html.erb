@@ -1,2 +1,100 @@
-<h1>Admin::Customers#edit</h1>
-<p>Find me in app/views/admin/customers/edit.html.erb</p>
+<div class="container">
+  <h3><%= @customer.last_name %><%= @customer.first_name %>の会員情報編集</h3>
+  <br>
+
+  <% if @customer.errors.any? %>
+    <%= @customer.errors.count %>件のエラーが発生しました
+    <ul>
+    <% @customer.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  <% end %>
+
+
+  <%= form_with model: @customer, url: "/admin/customers/#{@customer.id}" do |f| %>
+  <form>
+    <div class="row">
+      <div class="col-lg-2">
+        <label>会員ID</label>
+      </div>
+      <div class="col-lg-3">
+        <%= @customer.id %>
+      </div>
+    </div>
+    <br>
+    <div class="form-group row">
+      <div class="col-lg-2">
+        <label>氏名</label>
+      </div>
+      <div class="col-lg-3">
+        <%= f.text_field :last_name, class:"form-control" %>
+      </div>
+      <div class="col-lg-3">
+        <%= f.text_field :first_name, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-lg-2">
+        <label>フリガナ</label>
+      </div>
+      <div class="col-lg-3">
+        <%= f.text_field :last_name_kana, class:"form-control" %>
+      </div>
+      <div class="col-lg-3">
+        <%= f.text_field :first_name_kana, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-lg-2">
+        <label>郵便番号</label>
+      </div>
+      <div class="col-lg-3">
+        <%= f.text_field :postal_code, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-lg-2">
+        <label>住所</label>
+      </div>
+      <div class="col-lg-8">
+        <%= f.text_field :address, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-lg-2">
+        <label>電話番号</label>
+      </div>
+      <div class="col-lg-3">
+        <%= f.text_field :telephone_number, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-lg-2">
+        <label>メールアドレス</label>
+      </div>
+      <div class="col-lg-3">
+        <%= f.text_field :email, class:"form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-lg-2">
+        <label>会員ステータス</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :is_deleted, :false, class:"form-check-input" %>
+        <label class="form-check-label" for="inlineRadio1">有効</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <%= f.radio_button :is_deleted, :true, class:"form-check-input" %>
+        <label class="form-check-label" for="inlineRadio2">退会</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <%= f.submit '変更を保存', class:"btn btn-block btn-success col-2" %>
+      <div class="col-lg-8"></div>
+    </div>
+  </form>
+  <% end %>
+</div>
