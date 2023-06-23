@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get 'customers/check' => 'customers#check'
     patch 'customers/withdrawl' => 'customers#withdrawl', as: 'withdrawal'
     resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :create, :update]
   end
 
   # 管理者側のルーティング設定
