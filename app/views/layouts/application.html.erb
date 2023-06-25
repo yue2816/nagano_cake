@@ -47,6 +47,11 @@
                 </div>
               </li>
               <li class="nav-item">
+                <div class="py-1 px-3 mr-4 bg-light text-dark">
+                <%= link_to "カート", cart_items_path, class: 'nav-link text-dark' %>
+                </div>
+              </li>
+              <li class="nav-item">
                 <div class="py-1 px-3 bg-light text-dark">
                 <%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: 'nav-link text-dark' %>
               </li>
