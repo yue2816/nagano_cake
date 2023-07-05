@@ -1,6 +1,5 @@
-<div class="container">
-  <h3><%= @customer.last_name %><%= @customer.first_name %>の会員情報編集</h3>
-  <br>
+<div class="container  mt-3">
+  <h3 class="mb-4"><%= @customer.last_name %><%= @customer.first_name %>の会員情報編集</h3>
 
   <% if @customer.errors.any? %>
     <%= @customer.errors.count %>件のエラーが発生しました
