@@ -1,13 +1,29 @@
-<%= flash[:notice] %>
+<div class="container mt-3">
 
-<div class="col-md-6 mx-auto mt-5">
-  <p class="text-center">
-    ようこそ、ながのCAKEへ！<br>
-    このサイトは、ケーキ販売のECサイトになります。<br>
-    会員でない方も商品の閲覧はできますが、<br>
-    購入には会員登録が必要になります。
-  </p>
-</div>
-<div>
+  <%= flash[:notice] %>
+
+  <div class="col-md-6 mx-auto mt-5 mb-4">
+    <p class="text-center">
+      ようこそ、ながのCAKEへ！<br>
+      このサイトは、ケーキ販売のECサイトになります。<br>
+      会員でない方も商品の閲覧はできますが、<br>
+      購入には会員登録が必要になります。
+    </p>
+  </div>
+
   <h2>新着商品</h2>
+
+  <div class="row mt-4">
+  <% @items.each do |item| %>
+    <div class="col-lg-3">
+      <%= link_to item_path(item.id) do %>
+        <%= image_tag item.get_image(200,200) %>
+      <% end %>
+      <p><%= item.name %></p>
+      <p><%= item.price.to_s(:delimited) %>円</p>
+    </div>
+  <% end %>
+  </div>
+
+  <%= link_to "全ての商品を見る", items_path %>
 </div>
