@@ -1,21 +1,43 @@
-<%= flash[:notice] %>
+<div class="container mt-3">
+  <%= flash[:notice] %>
 
-<h2>Log in</h2>
+  <h3 class="mb-4">ログイン</h3>
 
-<%= form_with model: @customer, url: session_path(resource_name) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+  <h5 class="mb-3">会員の方はこちらからログイン</h5>
+  <%= form_with model: @customer, url: session_path(resource_name) do |f| %>
+  <form>
+    <div class="form-group row">
+      <div class="col-lg-2">
+        <label>メールアドレス</label>
+      </div>
+      <div class="col-lg-3">
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class:"form-control" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+    <div class="form-group row">
+      <div class="col-lg-2">
+        <label>パスワード</label>
+      </div>
+      <div class="col-lg-3">
+        <%= f.password_field :password, autocomplete: "current-password", class:"form-control" %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg">
+        <%= f.submit "ログイン", class:"btn btn-primary col-lg-2" %>
+      </div>
+    </div>
+  </form>
+  <% end %>
 
-<%= render "public/shared/links" %>
+  <br>
+  <br>
+  <br>
+  <h5 class="mb-3">会員登録がお済みでない方</h5>
+  <h6>
+    <%= link_to "こちら", new_customer_registration_path %>　から新規登録を行ってください。
+  </h6>
+</div>

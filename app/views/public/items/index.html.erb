@@ -1,9 +1,24 @@
-<h1>商品一覧</h1>
+<div class="container mt-5">
+  <div class="row mb-5">
+    <h2 class="">商品一覧</h2>
+    <h2>
+      (全<%= @total_item %>件)
+    </h2>
+  </div>
 
-<% @items.each do |item| %>
-  <%= link_to item_path(item.id) do %>
-    <%= image_tag item.get_image(100,100) %>
+  <div class="row row-cols-1 row-cols-md-4 g-4">
+  <% @items.each do |item| %>
+    <div class="col">
+      <div class="card h-100">
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.image, class:"card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-text"><%= item.with_tax_price.to_s(:delimited) %>円</p>
+        </div>
+      </div>
+    </div>
   <% end %>
-  <p>商品名：<%= item.name %></p>
-  <p>税抜き価格：<%= item.price %></p>
-<% end %>
+  </div>
+</div>
