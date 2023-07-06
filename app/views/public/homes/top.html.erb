@@ -11,19 +11,25 @@
     </p>
   </div>
 
-  <h2>新着商品</h2>
+  <h2 class="mb-3">新着商品</h2>
 
-  <div class="row mt-4">
+  <div class="row row-cols-1 row-cols-md-4 g-4">
   <% @items.each do |item| %>
-    <div class="col-lg-3">
-      <%= link_to item_path(item.id) do %>
-        <%= image_tag item.get_image(200,200) %>
-      <% end %>
-      <p><%= item.name %></p>
-      <p><%= item.price.to_s(:delimited) %>円</p>
+    <div class="col">
+      <div class="card h-100">
+        <%= link_to item_path(item.id) do %>
+          <%= image_tag item.image, class:"card-img-top" %>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= item.name %></h5>
+          <p class="card-text"><%= item.price.to_s(:delimited) %>円</p>
+        </div>
+      </div>
     </div>
   <% end %>
   </div>
 
-  <%= link_to "全ての商品を見る", items_path %>
+  <div class="mt-3">
+    <%= link_to "全ての商品を見る", items_path %>
+  </div>
 </div>
