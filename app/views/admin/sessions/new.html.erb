@@ -1,4 +1,7 @@
 <div class="container">
+
+  <%= flash[:notice] %>
+
   <h3>管理者ログイン</h3>
 
   <%= form_with model: @admin, url: admin_session_path do |f| %>
